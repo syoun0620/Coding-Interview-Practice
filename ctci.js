@@ -67,3 +67,20 @@ function palindromePermutation(str){
 // console.log(palindromePermutation("race eecar"))
 
 // 1.5 One Away
+
+// 1.6 String Compression
+// ex) aabcccccaaa  ==> a2b1c5a3
+function stringCompression(str){
+    var compressed = ""
+    var counter = 0
+    for (let i = 0; i<str.length; i++){
+        counter++
+        if (i === str.length-1 || str[i] !== str[i+1]){
+            compressed += str[i] + counter
+            counter = 0
+        }
+    }
+    return compressed
+}
+
+console.log(stringCompression("aabcccccaaab"))
