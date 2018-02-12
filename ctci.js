@@ -84,3 +84,53 @@ function stringCompression(str){
 }
 
 console.log(stringCompression("aabcccccaaab"))
+
+
+
+/*
+Given n pairs of parentheses, write a function to generate all combinations of
+well-formed parentheses.
+
+For example, given n = 3, a solution set is:
+
+[
+  "((()))",
+  "(()())",
+  "(())()",
+  "()(())",
+  "()()()"
+]
+*/
+
+function allPossibleParen(n){
+    if (n === 0){return []}
+
+    var prev = ["()"]
+    var arr = []
+    if (n===1){return prev}
+
+    var set = new Set();
+
+    for (let i = 1; i<n; i++){
+        arr = []
+        for (let j = 0; j<prev.length; j++){
+            for (let z = 0; z<prev[j].length; z++){
+                arr.push(prev[j].slice(0,z) + "()" + prev[j].slice(z))
+
+            }
+        }
+        prev = [...new Set(arr)]
+    }
+    return prev
+}
+
+console.log(allPossibleParen(2))
+
+
+
+
+
+
+
+
+//
